@@ -1,0 +1,29 @@
+services:
+  users-app-1:
+    build:
+      context: ./user-backend
+      dockerfile: Dockerfile
+    expose:
+      - "8080"
+  users-app-2:
+    build:
+      context: ./user-backend
+      dockerfile: Dockerfile
+    expose:
+      - "8080"
+  orders-app:
+    build:
+      context: ./order-backend
+      dockerfile: Dockerfile
+    expose:
+      - "8080"
+  nginx:
+    image: nginx:stable-alpine-slim
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - users-app-1
+      - users-app-2
+      - orders-app
