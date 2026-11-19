@@ -1,4 +1,5 @@
 pack.sh
 project_snapshot.txt
 push.sh
-certs/
+certs/**
+!certs/.gitkeep
