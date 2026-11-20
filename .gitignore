@@ -3,3 +3,5 @@ project_snapshot.txt
 push.sh
 certs/**
 !certs/.gitkeep
+nginx/cache/**
+!nginx/cache/.gitkeep
