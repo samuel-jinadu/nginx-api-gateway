@@ -25,6 +25,7 @@ services:
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
       - ./certs:/etc/nginx/certs:r
+      - ./nginx/cache:/var/cache/nginx
     depends_on:
       - users-app-1
       - users-app-2
